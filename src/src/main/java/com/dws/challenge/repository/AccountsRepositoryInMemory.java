@@ -1,6 +1,7 @@
 package com.dws.challenge.repository;
 
 import com.dws.challenge.domain.Account;
+import com.dws.challenge.exception.AmountTransferException;
 import com.dws.challenge.exception.DuplicateAccountIdException;
 import lombok.Getter;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,9 @@ public class AccountsRepositoryInMemory implements AccountsRepository {
 
     @Override
     public Account getAccount(String accountId) {
+        if (accountId == null) {
+            throw new AmountTransferException("Account ID cannot be null");
+        }
         return accounts.get(accountId);
     }
 

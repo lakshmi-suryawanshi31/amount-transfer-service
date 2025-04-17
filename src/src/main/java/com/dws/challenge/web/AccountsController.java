@@ -17,6 +17,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/v1/accounts")
 @Slf4j
+@Valid
 public class AccountsController {
 
   private final AccountsService accountsService;
